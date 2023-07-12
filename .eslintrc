@@ -39,7 +39,7 @@
             "warn",
             {
                 "argsIgnorePattern": "^_"
-            },
+            }
         ],
         "comma-dangle": 0,
         "consistent-return": 0,
