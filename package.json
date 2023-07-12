@@ -1,0 +1,13 @@
+{
+    "name": "hackathon-starter-typescript",
+    "version": "1.1.0",
+    "description": "A boilerplate for Node.js web applications with TypeScript",
+    "main": "dist/index.js",
+    "repository": "https://github.com/pau1tuck/hackathon-starter-typescript.git",
+    "author": "Sahat Yalkabov",
+    "contributors": [
+        "Paul D.R. Tuck (https://github.com/pau1tuck)",
+        "Yashar Fakhari (https://github.com/YasharF)"
+    ],
+    "license": "MIT"
+}
