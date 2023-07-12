@@ -1,0 +1,67 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2023,
+        "sourceType": "module" // Allows for the use of imports
+    },
+    "env": {
+        "node": true,
+        "mocha": true,
+        "es6": true
+    },
+    "extends": [
+        "airbnb-typescript-prettier",
+        "plugin:@typescript-eslint/recommended",
+        // "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "chai-friendly",
+        "import",
+        "sort-keys-fix",
+        "simple-import-sort"
+    ],
+    "rules": {
+        "import/prefer-default-export": [
+            0
+        ], // off
+        "max-classes-per-file": 1, // error
+        "class-methods-use-this": [
+            2
+        ],
+        "@typescript-eslint/no-explicit-any": [
+            "warn",
+            {
+                "ignoreRestArgs": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_"
+            },
+        ],
+        "comma-dangle": 0,
+        "consistent-return": 0,
+        "function-paren-newline": [
+            "error",
+            "never"
+        ],
+        "implicit-arrow-linebreak": [
+            "off"
+        ],
+        "no-param-reassign": 0,
+        "no-underscore-dangle": 0,
+        "no-shadow": 0,
+        "no-console": 1,
+        "no-plusplus": 0,
+        "no-unused-expressions": 0,
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "next"
+            }
+        ],
+        "chai-friendly/no-unused-expressions": 2
+    }
+}
