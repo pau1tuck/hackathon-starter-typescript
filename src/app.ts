@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express, Request, Response } from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 import compression from "compression";
@@ -15,12 +15,20 @@ import sass from "node-sass-middleware";
 // Import Multer middleware for handling multipart/form-data, used for uploading files.
 import multer, { Multer } from "multer";
 // Import controllers for route handling.
+import mongodb from "@/config/database.config";
 import controllers from "@/controllers";
+import passportConfig from "@/config/passport.config";
 
-// Load environmental variables from root .env file.
+// Load environmental variables from .env file.
 dotenv.config({ path: ".env" });
 
-// Set destination directory for file uploads.
+// Create Express server.
+const app: Express = express();
+
+// Set directory for file uploads.
 const upload: Multer = multer({ dest: path.join(__dirname, "uploads") });
+
+// Connect to MongoDB database.
+mongodb.connect();
 
 console.log("Yes, it's working, bitch!");
