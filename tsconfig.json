@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
         "target": "es2021",
-        "module": "esnext",
+        "module": "commonjs",
         "moduleResolution": "node",
         "lib": [
             "es2021"
         ],
-        "baseUrl": ".",
-        "outDir": "./dist",
-        "rootDir": "./src",
+        "baseUrl": "src",
+        "outDir": "dist",
+        "rootDir": "src",
         "paths": {
             "@/*": [
                 "./src/*"
@@ -19,7 +19,7 @@
             "./node_modules/@types"
         ],
         "strict": true,
-        "allowJs": false,
+        "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "checkJs": false,
         "declaration": true,
@@ -46,4 +46,8 @@
     "include": [
         "src/**/*.ts",
     ],
+    "exclude": [
+        ".eslintrc.js",
+        "node_modules"
+    ]
 }

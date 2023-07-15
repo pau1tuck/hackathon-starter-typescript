@@ -1,16 +1,18 @@
 import mongoose from "mongoose";
 
+const { MONGODB } = process.env;
+
 const mongodb = {
     connect() {
-        mongoose.connect(process.env.MONGODB_URI);
-        mongoose.connection.on("error", err => {
-            console.error(err);
-            console.log("%s MongoDB connection error. Please make sure MongoDB is running.");
-            process.exit();
-        });
-    },
-    isConnected() {
-        mongoose.
+        if (MONGODB) {
+            mongoose.connect(MONGODB);
+            mongoose.connection.on("error", err => {
+                throw new Error(`Connection error: ${err}`);
+            });
+            console.log("MongoDB connected.");
+        } else {
+            throw new Error("No MongoDB credentials provided.");
+        }
     },
 };
 
