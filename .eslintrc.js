@@ -25,6 +25,11 @@ module.exports = {
         // "plugin:jsx-a11y/recommended",
         "plugin:prettier/recommended",
     ],
+    settings: {
+        "import/resolver": {
+            typescript: {},
+        }
+    }
     rules: {
         "import/prefer-default-export": "off",
         "no-console": "off",
@@ -42,21 +47,15 @@ module.exports = {
                 argsIgnorePattern: "^_",
             },
         ],
-        "prettier/no-unused-vars": [
-            "warn",
-            {
-                argsIgnorePattern: "^_",
-            },
-        ],
         "prettier/prettier": [
             "error",
             {
                 endOfLine: "auto",
             },
         ],
+        "import/no-unresolved": "error",
         "comma-dangle": "warn",
         "consistent-return": "off",
-        "function-paren-newline": ["error", "never"],
         "implicit-arrow-linebreak": "off",
         "no-param-reassign": "off",
         "no-underscore-dangle": "off",

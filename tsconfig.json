@@ -6,18 +6,18 @@
         "lib": [
             "es2021"
         ],
-        "baseUrl": "src",
+        "baseUrl": "./src",
         "outDir": "dist",
         "rootDir": "src",
         "paths": {
             "@/*": [
-                "./src/*"
-            ]
+                "*"
+            ],
+            "typeRoots": [
+                "src/types",
+                "./node_modules/@types"
+            ],
         },
-        "typeRoots": [
-            "src/types",
-            "./node_modules/@types"
-        ],
         "strict": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
