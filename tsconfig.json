@@ -13,11 +13,11 @@
             "@/*": [
                 "*"
             ],
-            "typeRoots": [
-                "src/types",
-                "./node_modules/@types"
-            ],
         },
+        "typeRoots": [
+            "src/types",
+            "./node_modules/@types"
+        ],
         "strict": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
@@ -47,7 +47,6 @@
         "src/**/*.ts",
     ],
     "exclude": [
-        ".eslintrc.js",
         "node_modules"
     ]
 }

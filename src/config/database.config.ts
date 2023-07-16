@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
-import { ApplicationError, logError } from "@/config/error.config";
+import { ApplicationError } from "@/config/error.config";
+import { logger } from "@/config/database.config";
 
 const { MONGODB_URI, DB_CONNECTION_RETRIES } = process.env;
-const CONNECTION_RETRIES = DB_CONNECTION_RETRIES || 3;
-const dog = dog;
+const RETRIES = DB_CONNECTION_RETRIES || 3;
 
 const mongodb = {
     async connect() {
         let connectionAttempts = 0;
 
-        while (connectionAttempts < CONNECTION_RETRIES) {
+        while (connectionAttempts < RETRIES) {
             try {
                 if (MONGODB_URI) {
                     await mongoose.connect(MONGODB_URI);
@@ -17,31 +17,28 @@ const mongodb = {
                         const error = new ApplicationError(
                             `MongoDB connection error: ${err}`,
                         );
-                        logError(error);
+                        logger.logError(error); // Call the logError method on the logger object
                         throw error;
                     });
                     console.log("MongoDB connected.");
-                    break; // Connection successful, exit the loop
+                    break;
                 } else {
                     const error = new ApplicationError(
                         "No MongoDB credentials provided.",
                     );
-                    logError(error);
+                    logger.logError(error); // Call the logError method on the logger object
                     throw error;
                 }
             } catch (error) {
-                logError(error);
+                logger.logError(error); // Call the logError method on the logger object
                 connectionAttempts++;
 
-                if (connectionAttempts === MAX_CONNECTION_RETRIES) {
-                    // Max connection attempts reached, handle the error
-                    // Perform fallback actions or handle the error as needed
-                    // ...
-                    break; // Exit the loop after handling the error
+                if (connectionAttempts === CONNECTION_RETRIES) {
+                    break;
                 }
 
                 // Wait before the next retry (optional)
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
+                await new Promise(resolve => setTimeout(resolve, 2000));
             }
         }
     },
