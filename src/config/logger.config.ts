@@ -16,16 +16,13 @@ class SingletonLogger {
 	private constructor() {
 		// Initialize the logger with console and file transports
 		this.logger = winston.createLogger({
-			transports: [
-				new winston.transports.Console(),
-				new winston.transports.File({ filename: "error.log" }),
-			],
+			transports: [new winston.transports.Console(), new winston.transports.File({ filename: "error.log" })],
 		});
 	}
 
 	/**
-	 * Returns the single instance of the SingletonLogger class.
-	 * Creates a new instance if it doesn't exist.
+	 * Returns a single instance of the SingletonLogger class.
+	 * Creates a new instance if one doesn't exist.
 	 * @returns The single instance of the SingletonLogger class.
 	 */
 	public static getInstance(): SingletonLogger {
